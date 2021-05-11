@@ -1,11 +1,6 @@
 name: Python Quality Check
 
-on:
-  push:
-    
-  pull_request:
-    branches:
-      - main
+on: [pull_request]
 
 jobs:
   quality-check:
