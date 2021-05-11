@@ -4,12 +4,7 @@ import numpy as np
 import cv2
 
 from mmpose.datasets.pipelines import Compose
-from mmcv import Config
-from mmcv.cnn import fuse_conv_bn
-from mmcv.parallel import MMDataParallel, collate
-from mmcv.runner import load_checkpoint
-
-from mmpose.models import build_posenet
+from mmcv.parallel import collate
 
 def process_yolo(det_results, score_thr=0.3, cat_id=0):
     bboxes_xyxy = det_results.xyxy

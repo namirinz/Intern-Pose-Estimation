@@ -1,0 +1,7 @@
+mmpose\_main module
+===================
+
+.. automodule:: mmpose_main
+   :members:
+   :undoc-members:
+   :show-inheritance:
