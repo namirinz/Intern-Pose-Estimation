@@ -1,1 +1,0 @@
-from .mmpose_main import test_func
