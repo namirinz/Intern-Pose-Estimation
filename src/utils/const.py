@@ -31,3 +31,5 @@ ANGLE_COLS = [
     "left_foot", "right_foot", "left_thigh", "right_thigh",
     "left_knee2", "right_knee2", "left_thigh2", "right_thigh2"
 ]
+
+JOINT_DISTANCE_COLS = [f'distance_{num}' for num in range(1, 137)]
