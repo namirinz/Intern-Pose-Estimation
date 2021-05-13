@@ -1,10 +1,10 @@
 """Do feature engineering like Joint angles, Joint distances, PCA."""
-
 import itertools
 
 import numpy as np
 
-from typing import Tuple
+from src.utils.const import ANGLE_PAIRS
+from typing import Tuple, List
 
 
 def keypoint_to_vectors(
@@ -28,7 +28,7 @@ def keypoint_to_vectors(
     return (first_vector, second_vector)
 
 
-def get_angle(
+def compute_angle(
         first_vector: np.ndarray,
         second_vector: np.ndarray,
     ) -> float:
@@ -49,14 +49,44 @@ def get_angle(
     return angle
 
 
-def get_distances(keypoints: np.ndarray) -> np.ndarray:
-    """Calculate euclidience distance between pair of rows.
+def get_angles(keypoints: np.ndarray) -> List[float]:
+    """Get all angles between define pair of joints.
 
     Args:
         keypoints (np.ndarray): [17, 2] Keypoint array.
 
     Returns:
-        A numpy array contain distance between each joint with
+        List of float contrain all angles 24 features.
+    """
+    angles_list = []
+    for angle_pair in ANGLE_PAIRS:
+        first_keypoint = keypoints[angle_pair[0]]
+        second_keypoint = keypoints[angle_pair[1]]
+        third_keypoint = keypoints[angle_pair[2]]
+
+        joint_vector = keypoint_to_vectors(
+                        first_point=first_keypoint,
+                        second_point=second_keypoint,
+                        third_point=third_keypoint
+        )
+
+        angle = compute_angle(
+            first_vector=joint_vector[0], second_vector=joint_vector[1]
+        )
+
+        angles_list.append(angle)
+
+    return angles_list
+
+
+def get_distances(keypoints: np.ndarray) -> np.ndarray:
+    """Get all euclidience distance between pair of rows.
+
+    Args:
+        keypoints (np.ndarray): [17, 2] Keypoint array.
+
+    Returns:
+        Numpy array contain distance between each joint with
         16 remaining joints.
         17 * (17-1)/2 = 136 features
     """
