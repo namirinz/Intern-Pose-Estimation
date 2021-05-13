@@ -18,10 +18,10 @@ def get_parent_folder(raw_path: str) -> str:
 
 
 def get_save_pathname(
-        raw_path: str,
-        classname: str,
-        target_path: str,
-    ) -> str:
+            raw_path: str,
+            classname: str,
+            target_path: str,
+        ) -> str:
     """Get full path name to be save after being resize.
 
     Args:

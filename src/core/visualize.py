@@ -10,10 +10,10 @@ GREEN_COLOR = (0, 188, 0)
 
 
 def draw_bbox(
-        bboxes: np.ndarray,
-        image: np.ndarray,
-        format='xyxy',
-    ) -> np.ndarray:
+            bboxes: np.ndarray,
+            image: np.ndarray,
+            format='xyxy',
+        ) -> np.ndarray:
     """Draw bounding box over image.
 
     Args:
@@ -27,13 +27,13 @@ def draw_bbox(
 
 
 def draw_keypoint(
-        keypoints: np.ndarray,
-        image: np.ndarray,
-        radius=4,
-        thickness=1,
-        show=False,
-        save_path=None,
-    ) -> np.ndarray:
+            keypoints: np.ndarray,
+            image: np.ndarray,
+            radius=4,
+            thickness=1,
+            show=False,
+            save_path=None,
+        ) -> np.ndarray:
     """Visualize plotted keypoint and choose to plot or save plotted image.
 
     Args:
