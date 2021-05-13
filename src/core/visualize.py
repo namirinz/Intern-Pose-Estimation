@@ -14,8 +14,7 @@ def draw_bbox(
     image: np.ndarray,
     format='xyxy',
 ) -> np.ndarray:
-    """
-        Draw bounding box over image.
+    """Draw bounding box over image.
 
         Args:
             bboxes (np.ndarray): [N, 5] or [N, 4] bounding box of object.
@@ -35,8 +34,7 @@ def draw_keypoint(
     show=False,
     save_path=None,
 ) -> np.ndarray:
-    """
-        Visualize plotted keypoint and choose to plot or save plotted image.
+    """Visualize plotted keypoint and choose to plot or save plotted image.
 
         Args:
             keypoints (np.ndarray): [17, 2] 17 points by coco format with x, y.
@@ -53,11 +51,11 @@ def draw_keypoint(
     image_plot = image.copy()
 
     keypoint_pairs = [
-        [16, 14], [14, 12], [17, 15],
-        [15, 13], [12, 13], [6, 12], [7, 13],
-        [6, 7], [6, 8], [7, 9], [8, 10],
-        [9, 11], [2, 3], [1, 2], [1, 3],
-        [2, 4], [3, 5], [4, 6], [5, 7]
+        [15, 13], [13, 11], [16, 14], [14, 12],
+        [11, 12], [ 5, 11], [ 6, 12], [ 5,  6],
+        [ 5,  7], [ 6,  8], [ 7,  9], [ 8, 10],
+        [ 1,  2], [ 0,  1], [ 0,  2], [ 1,  3],
+        [ 2,  4], [ 3,  5], [ 4,  6],
     ]
 
     color_pairs = [
@@ -66,20 +64,20 @@ def draw_keypoint(
         ORANGE_COLOR, ORANGE_COLOR, ORANGE_COLOR,
         ORANGE_COLOR, ORANGE_COLOR, GREEN_COLOR,
         GREEN_COLOR, GREEN_COLOR, GREEN_COLOR,
-        GREEN_COLOR, GREEN_COLOR
+        GREEN_COLOR, GREEN_COLOR,
     ]
 
     for pair in keypoint_pairs:
 
-        # keypoints [ index ]
-        first_point = keypoints[pair[0]-1].astype(np.int32)
+        # Select keypoint by index from pair
+        first_point = keypoints[pair[0]].astype(np.int32)
         first_point = tuple(first_point)
 
-        second_point = keypoints[pair[1]-1].astype(np.int32)
+        second_point = keypoints[pair[1]].astype(np.int32)
         second_point = tuple(second_point)
 
-        first_point_color = color_pairs[pair[0]-1]
-        second_point_color = color_pairs[pair[1]-1]
+        first_point_color = color_pairs[pair[0]]
+        second_point_color = color_pairs[pair[1]]
         line_color = first_point_color
 
         # Plotting first point
