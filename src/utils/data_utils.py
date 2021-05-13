@@ -1,4 +1,24 @@
+"""Contain function doing about data."""
+import json
 import os
+
+import numpy as np
+from typing import Dict
+
+
+def get_json(filename: str) -> Dict[str, np.ndarray]:
+    """Open filename.json and return as a dictionary object.
+
+    Args:
+        filename (str): Json file name to be used.
+
+    Returns:
+        Dictionary loaded from json file.
+    """
+    with open(filename, 'r') as json_file:
+        dict_ = json.load(json_file)
+
+    return dict_
 
 
 def get_parent_folder(raw_path: str) -> str:
