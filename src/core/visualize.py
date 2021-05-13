@@ -13,15 +13,15 @@ def draw_bbox(
     bboxes: np.ndarray,
     image: np.ndarray,
     format='xyxy',
-) -> np.ndarray:
+    ) -> np.ndarray:
     """Draw bounding box over image.
 
-        Args:
-            bboxes (np.ndarray): [N, 5] or [N, 4] bounding box of object.
-            image (np.ndarray): [H, W, 3] Image with BGR format.
-            format (str): format of bounding box 'xyxy' stand for
-                xmin, ymin, xmax, ymax and 'xywh' stand for
-                xmin, ymin, width, height.
+    Args:
+        bboxes (np.ndarray): [N, 5] or [N, 4] bounding box of object.
+        image (np.ndarray): [H, W, 3] Image with BGR format.
+        format (str): format of bounding box 'xyxy' stand for
+            xmin, ymin, xmax, ymax and 'xywh' stand for
+            xmin, ymin, width, height.
     """
     xmin, ymin, xmax, ymax = bboxes[:4]
 
@@ -33,29 +33,29 @@ def draw_keypoint(
     thickness=1,
     show=False,
     save_path=None,
-) -> np.ndarray:
+    ) -> np.ndarray:
     """Visualize plotted keypoint and choose to plot or save plotted image.
 
-        Args:
-            keypoints (np.ndarray): [17, 2] 17 points by coco format with x, y.
-            image (np.ndarray): [H, W, 3] Image with BGR format.
-            radius (int): Radius of circle keypoint to be plot.
-            thickness (int): Line thickness between 2 circle keypoint.
-            show (bool): Whether to show a plotted image or not.
-            save_path (str): Path to save.
+    Args:
+        keypoints (np.ndarray): [17, 2] 17 points by coco format with x, y.
+        image (np.ndarray): [H, W, 3] Image with BGR format.
+        radius (int): Radius of circle keypoint to be plot.
+        thickness (int): Line thickness between 2 circle keypoint.
+        show (bool): Whether to show a plotted image or not.
+        save_path (str): Path to save.
 
-        Returns:
-            A numpy array plotted image with BGR format.
+    Returns:
+        A numpy array plotted image with BGR format.
     """
 
     image_plot = image.copy()
 
     keypoint_pairs = [
         [15, 13], [13, 11], [16, 14], [14, 12],
-        [11, 12], [ 5, 11], [ 6, 12], [ 5,  6],
-        [ 5,  7], [ 6,  8], [ 7,  9], [ 8, 10],
-        [ 1,  2], [ 0,  1], [ 0,  2], [ 1,  3],
-        [ 2,  4], [ 3,  5], [ 4,  6],
+        [11, 12], [5, 11], [6, 12], [5, 6],
+        [5, 7], [6, 8], [7, 9], [8, 10],
+        [1, 2], [0, 1], [0, 2], [1, 3],
+        [2, 4], [3, 5], [4, 6],
     ]
 
     color_pairs = [
