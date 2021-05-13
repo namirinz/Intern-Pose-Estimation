@@ -4,21 +4,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def draw_bbox(bboxes: np.ndarray, image: np.ndarray, format:str='xyxy') -> np.ndarray:
+def draw_bbox(bboxes: np.ndarray,
+              image: np.ndarray,
+              format:str = 'xyxy') -> np.ndarray:
     """
         Draw bounding box over image.
         
         Args:
             bboxes (np.ndarray): [N, 5] or [N, 4] bounding box of object.
             image (np.ndarray): [H, W, 3] Image with BGR format.
-            format (str): format of bounding box 'xyxy' stand for xmin,ymin,xmax,ymax
-                          and 'xywh' stand for xmin,ymin,width,height.
+            format (str): format of bounding box 'xyxy' stand for
+                xmin, ymin, xmax, ymax and 'xywh' stand for
+                xmin, ymin, width, height.
     """
     xmin, ymin, xmax, ymax, _ = bboxes
 
 
-def draw_keypoint(keypoints: np.ndarray, image: np.ndarray, radius=4,
-                  thickness=1, show=False, save_path=None) -> np.ndarray:
+def draw_keypoint(keypoints: np.ndarray,
+                  image: np.ndarray,
+                  radius=4,
+                  thickness=1,
+                  show=False,
+                  save_path=None) -> np.ndarray :
     """
         Visualize plotted keypoint and choose to plot or save plotted image.
 
@@ -29,22 +36,25 @@ def draw_keypoint(keypoints: np.ndarray, image: np.ndarray, radius=4,
             thickness (int): Line thickness between 2 circle keypoint.
             show (bool): Whether to show a plotted image or not.
             save_path (str): Path to save.
-        
+
         Returns:
             A numpy array plotted image with BGR format.
     """
+
     image_plot = image.copy()
 
     keypoint_pairs = [
-     [16,14],[14,12],[17,15],[15,13],[12,13],[6,12],
-     [7,13],[6,7],[6,8],[7,9],[8,10],[9,11],[2,3]
-     [1,2],[1,3],[2,4],[3,5],[4,6],[5,7]
+        [16,14], [14,12], [17,15], [15,13], [12,13],
+        [6,12], [7,13], [6,7], [6,8], [7,9], [8,10],
+        [9,11], [2,3], [1,2], [1,3], [2,4], [3,5],
+        [4,6], [5,7]
     ]
 
     color_pairs = [
-     [0,0,255], [0,0,255], [0,0,255], [0,0,255], [0,0,255],
-     [255,140,0], [255,140,0], [255,140,0], [255,140,0], [255,140,0], [255,140,0],
-     [0,128,0], [0,128,0], [0,128,0], [0,128,0], [0,128,0], [0,128,0]
+        [0,0,255], [0,0,255], [0,0,255], [0,0,255], [0,0,255],
+        [255,140,0], [255,140,0], [255,140,0], [255,140,0],
+        [255,140,0], [255,140,0], [0,128,0], [0,128,0],
+        [0,128,0], [0,128,0], [0,128,0], [0,128,0]
     ]
 
     for pair in keypoint_pairs:
