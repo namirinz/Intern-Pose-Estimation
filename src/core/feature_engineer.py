@@ -1,19 +1,15 @@
-"""
-    Do feature engineering like Joint angles, Joint distances, PCA.
-"""
+"""Do feature engineering like Joint angles, Joint distances, PCA."""
 
-import numpy as np
 import itertools
+import numpy as np
 
 from typing import Tuple
 
-from torch import float32
-
 
 def keypoint_to_vectors(
-        first_point: int,
-        second_point: int,
-        third_point: int,
+        first_point: np.ndarray,
+        second_point: np.ndarray,
+        third_point: np.ndarray,
     ) -> Tuple[np.ndarray, np.ndarray]:
     """Compute vector between 2 points with second_point as a reference point.
 
@@ -59,7 +55,8 @@ def get_distances(keypoints: np.ndarray) -> np.ndarray:
         keypoints (np.ndarray): [17, 2] Keypoint array.
 
     Returns:
-        A numpy array contain distance between each joint with 16 remaining joints.
+        A numpy array contain distance between each joint with
+        16 remaining joints.
         17 * (17-1)/2 = 136 features
     """
     all_distances = []
