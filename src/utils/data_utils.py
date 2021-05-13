@@ -1,9 +1,8 @@
-"""Contain function doing about data"""
+"""Contain function doing about data."""
 import json
 import os
 
 import numpy as np
-
 from typing import Dict
 
 
