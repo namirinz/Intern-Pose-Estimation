@@ -1,5 +1,10 @@
+"""Contain function doing about data"""
 import json
 import os
+
+import numpy as np
+
+from typing import Dict
 
 
 def get_json(filename: str) -> Dict[str, np.ndarray]:
@@ -13,7 +18,7 @@ def get_json(filename: str) -> Dict[str, np.ndarray]:
     """
     with open(filename, 'r') as json_file:
         dict_ = json.load(json_file)
-    
+
     return dict_
 
 
