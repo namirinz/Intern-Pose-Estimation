@@ -1,15 +1,14 @@
 import cv2
 
 import numpy as np
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 
 
 def draw_bbox(
-    bboxes: np.ndarray, 
-    image: np.ndarray, 
-    format:str = 'xyxy'
+    bboxes: np.ndarray,
+    image: np.ndarray,
+    format: str = 'xyxy'
 ) -> np.ndarray :
-
     """
         Draw bounding box over image.
 
@@ -24,14 +23,13 @@ def draw_bbox(
 
 
 def draw_keypoint(
-    keypoints: np.ndarray, 
-    image: np.ndarray, 
-    radius=4, 
-    thickness=1, 
-    show=False, 
-    save_path=None
-) -> np.ndarray :
-
+    keypoints: np.ndarray,
+    image: np.ndarray,
+    radius=4,
+    thickness=1,
+    show=False,
+    save_path=None,
+) -> np.ndarray:
     """
         Visualize plotted keypoint and choose to plot or save plotted image.
 
