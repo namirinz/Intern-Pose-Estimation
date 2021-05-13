@@ -1,7 +1,5 @@
 import os
 
-from typing import List, Tuple
-
 
 def get_parent_folder(raw_path: str) -> str:
     """
@@ -16,8 +14,8 @@ def get_parent_folder(raw_path: str) -> str:
 
                 'projects/folder1/folder2/item.py' -> 'folder2'
     """
-    parent_folder = os.path.basename(os.path.dirname(raw_path))
-    return parent_folder 
+
+    return os.path.basename(os.path.dirname(raw_path))
 
 def get_save_pathname(raw_path: str, classname: str, target_path: str) -> str:
     """
@@ -32,7 +30,7 @@ def get_save_pathname(raw_path: str, classname: str, target_path: str) -> str:
             A string full path name to be save.
             example:
 
-                'target/classname/item_resize.jpg'
+                'target_path/classname/item_resize.jpg'
     """
     filename_without_extension, extension = os.path.splitext(os.path.basename(raw_path))
     filename_save= filename_without_extension + '_resize' + extension

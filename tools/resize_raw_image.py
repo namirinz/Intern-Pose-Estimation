@@ -1,11 +1,14 @@
-import os
-import glob
 import cv2
+import glob
+import os
 
 from src.utils import get_save_pathname
 from src.utils import get_parent_folder
 from typing import List, Tuple
 
+
+IMAGE_WIDTH = 192
+IMAGE_HEIGHT = 256
 
 def get_filenames() -> Tuple[List[str], List[str]]:
     """
@@ -47,9 +50,8 @@ def main():
 
     for raw_file, target_file in zip(raw_filenames, target_filenames):
         image_raw = cv2.imread(raw_file, cv2.IMREAD_COLOR)
-        image_resize = cv2.resize(image_raw, [192,256]) # [Width, Height]
+        image_resize = cv2.resize(image_raw, [IMAGE_WIDTH,IMAGE_HEIGHT])
         cv2.imwrite(target_file, image_resize)
 
 if __name__ == '__main__':
     main()
-    
