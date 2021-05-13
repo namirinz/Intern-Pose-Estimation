@@ -4,9 +4,10 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-BLUE_COLOR = [0, 0, 255]
-ORANGE_COLOR = [255, 140, 0]
-GREEN_COLOR = [0, 188, 0]
+BLUE_COLOR = (0, 0, 255)
+ORANGE_COLOR = (255, 140, 0)
+GREEN_COLOR = (0, 188, 0)
+
 
 def draw_bbox(
     bboxes: np.ndarray,
@@ -51,19 +52,20 @@ def draw_keypoint(
 
     image_plot = image.copy()
 
-    keypoint_pairs = [[16, 14], [14, 12], [17, 15],
+    keypoint_pairs = [
+        [16, 14], [14, 12], [17, 15],
         [15, 13], [12, 13], [6, 12], [7, 13],
         [6, 7], [6, 8], [7, 9], [8, 10],
         [9, 11], [2, 3], [1, 2], [1, 3],
-        [2, 4], [3, 5], [4, 6], [5, 7],
-    ]
+        [2, 4], [3, 5], [4, 6], [5, 7]]
 
-    color_pairs = [BLUE_COLOR, BLUE_COLOR, BLUE_COLOR,
+    color_pairs = [
+        BLUE_COLOR, BLUE_COLOR, BLUE_COLOR,
         BLUE_COLOR, BLUE_COLOR, ORANGE_COLOR,
         ORANGE_COLOR, ORANGE_COLOR, ORANGE_COLOR,
         ORANGE_COLOR, ORANGE_COLOR, GREEN_COLOR,
         GREEN_COLOR, GREEN_COLOR, GREEN_COLOR,
-        GREEN_COLOR, GREEN_COLOR,
+        GREEN_COLOR, GREEN_COLOR
     ]
 
     for pair in keypoint_pairs:
@@ -82,19 +84,19 @@ def draw_keypoint(
         # Plotting first point
         image_plot = cv2.circle(
             img=image_plot, center=first_point,
-            color=first_point_color, radius=radius, thickness=-1
+            color=first_point_color, radius=radius, thickness=-1,
         )
 
         # Plotting second point
         image_plot = cv2.circle(
             img=image_plot, center=second_point,
-            color=second_point_color, radius=radius, thickness=-1
+            color=second_point_color, radius=radius, thickness=-1,
         )
 
         # Plotting line between 2 points
         image_plot = cv2.line(
             img=image_plot, pt1=first_point, pt2=second_point,
-            color=line_color, thickness=thickness
+            color=line_color, thickness=thickness,
         )
 
     if show:
