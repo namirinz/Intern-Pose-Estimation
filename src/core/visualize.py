@@ -2,6 +2,7 @@ import cv2
 
 import numpy as np
 from matplotlib import pyplot as plt
+from src.utils.const import KEYPOINT_PAIRS
 
 
 BLUE_COLOR = (0, 0, 255)
@@ -50,14 +51,6 @@ def draw_keypoint(
 
     image_plot = image.copy()
 
-    keypoint_pairs = [
-        [15, 13], [13, 11], [16, 14], [14, 12],
-        [11, 12], [5, 11], [6, 12], [5, 6],
-        [5, 7], [6, 8], [7, 9], [8, 10],
-        [1, 2], [0, 1], [0, 2], [1, 3],
-        [2, 4], [3, 5], [4, 6],
-    ]
-
     color_pairs = [
         BLUE_COLOR, BLUE_COLOR, BLUE_COLOR,
         BLUE_COLOR, BLUE_COLOR, ORANGE_COLOR,
@@ -67,7 +60,7 @@ def draw_keypoint(
         GREEN_COLOR, GREEN_COLOR,
     ]
 
-    for pair in keypoint_pairs:
+    for pair in KEYPOINT_PAIRS:
 
         # Select keypoint by index from pair
         first_point = keypoints[pair[0]].astype(np.int32)
