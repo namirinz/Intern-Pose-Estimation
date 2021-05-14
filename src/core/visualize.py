@@ -4,6 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from src.utils.const import KEYPOINT_PAIRS
 
+
 BLUE_COLOR = (0, 0, 255)
 ORANGE_COLOR = (255, 140, 0)
 GREEN_COLOR = (0, 188, 0)

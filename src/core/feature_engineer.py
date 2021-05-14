@@ -66,13 +66,14 @@ def get_angles(list_keypoints: np.ndarray) -> List[float]:
             third_keypoint = keypoints[angle_pair[2]]
 
             joint_vector = keypoint_to_vectors(
-                            first_point=first_keypoint,
-                            second_point=second_keypoint,
-                            third_point=third_keypoint
+                first_point=first_keypoint,
+                second_point=second_keypoint,
+                third_point=third_keypoint,
             )
 
             angle = compute_angle(
-                first_vector=joint_vector[0], second_vector=joint_vector[1]
+                first_vector=joint_vector[0],
+                second_vector=joint_vector[1],
             )
 
             angles_list.append(angle)
