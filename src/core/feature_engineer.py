@@ -1,5 +1,7 @@
 """Do feature engineering like Joint angles, Joint distances, PCA."""
 import itertools
+import os
+import pickle
 
 import numpy as np
 
@@ -98,6 +100,7 @@ def compute_distance(keypoints: np.ndarray) -> np.ndarray:
         distances.append(np.linalg.norm(iters[0] - iters[1]))
 
     return np.array(distances)
+
 
 def get_distances(list_keypoints: np.ndarray) -> np.ndarray:
     """Get all euclidience distance between pair of rows.
